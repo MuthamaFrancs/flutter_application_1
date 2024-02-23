@@ -1,51 +1,84 @@
-// ignore: unused_import
 import 'dart:ui_web';
 
 import 'package:flutter/material.dart';
-// ignore: unused_import
+import 'package:flutter_application_1/attendancedashboard.dart';
 import 'package:flutter_application_1/configs/constants.dart';
 
-// ignore: depend_on_referenced_packages
-//import 'package:google_fonts/google_fonts.dart';
 void main() {
-  runApp(const MaterialApp(
+  runApp(MaterialApp(
     home: Landingpage(),
     debugShowCheckedModeBanner: false,
   ));
 }
 
-class Landingpage extends StatelessWidget {
-  const Landingpage({dynamic});
+class Landingpage extends StatefulWidget {
+  Landingpage({dynamic});
+
+  @override
+  State<Landingpage> createState() => _LandingpageState();
+}
+
+class _LandingpageState extends State<Landingpage> {
+  int selectedIndex = 0;
+  final pages = [
+    Landingpage(),
+    AttendanceDashboard(),
+    //Implement other screens here if needed
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       //i want the main axis to have a maximum width
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: selectedIndex,
+        enableFeedback: true,
+        onTap: _onItemTapped,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.auto_graph_rounded),
+            label: 'Statistics',
+            //activeIcon: ,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          )
+        ],
+      ),
       appBar: AppBar(
-          title: Container(
-        //Icon(Icons.person),
-        child: RichText(
-          text: const TextSpan(
-            children: [
-              TextSpan(
-                text: 'Hi ',
-                style: TextStyle(
-                    fontSize: 20.0,
-                    fontFamily: 'Kalnia',
-                    fontWeight: FontWeight.w300),
-              ),
-              TextSpan(
-                text: 'Francis!',
-                style: TextStyle(
-                  fontSize: 22.0,
-                  fontFamily: 'Kalnia',
-                  fontWeight: FontWeight.bold,
+          title: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Container(
+          //Icon(Icons.person),
+          child: RichText(
+            text: const TextSpan(
+              children: [
+                TextSpan(
+                  text: 'Hi ',
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      fontFamily: 'Kalnia',
+                      fontWeight: FontWeight.w300),
                 ),
-              ),
-            ],
+                TextSpan(
+                  text: 'Francis!',
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    fontFamily: 'Kalnia',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       )),
+
       body: SingleChildScrollView(
         child: Container(
           //color: primaryColor,
@@ -56,29 +89,36 @@ class Landingpage extends StatelessWidget {
             child: Column(
               children: [
                 const Card(
-                    child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.sunny,
-                          color: Colors.yellow,
-                          size: 20.0,
+                    child: Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.sunny,
+                              color: Colors.yellow,
+                              size: 60.0,
+                            ),
+                            Text(
+                              "Today is Thursday 21/02/2024 ",
+                              style: TextStyle(
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.normal),
+                            ),
+                          ],
                         ),
-                        Text(
-                          "Today is Thursday 21/02/2024 ",
-                          style: TextStyle(
-                              fontSize: 20.0, fontWeight: FontWeight.normal),
-                        ),
-                      ],
-                    ),
-                    Text(
-                      "Chapel Day Coming in 6 days!",
-                      style: TextStyle(
-                          fontSize: 25.0, fontWeight: FontWeight.bold),
-                    ),
-                  ],
+                      ),
+                      Text(
+                        "Chapel Day Coming in 6 days!",
+                        style: TextStyle(
+                            fontSize: 25.0, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
                 )),
                 const SizedBox(
                   height: 30.0,
@@ -89,10 +129,13 @@ class Landingpage extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(10.0),
-                        child: Image.asset(
-                          "images/finallogo.jpg",
-                          height: 400,
-                          width: 400,
+                        child: Container(
+                          margin: const EdgeInsets.all(10.0),
+                          child: Image.asset(
+                            "images/finallogo.jpg",
+                            height: 400,
+                            width: 400,
+                          ),
                         ),
                       ),
                       const Row(
@@ -106,14 +149,16 @@ class Landingpage extends StatelessWidget {
                               color: primaryColor,
                             ),
                           ),
-                          const SizedBox(
+                          SizedBox(
                             height: 20.0,
                           ),
-                          Text(
-                            "Scan Your Fingerprint to sign up for attendance!",
-                            style: TextStyle(
-                              fontSize: 22.0,
-                              fontWeight: FontWeight.w600,
+                          Center(
+                            child: Text(
+                              "Scan to sign up for attendance!",
+                              style: TextStyle(
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ],
@@ -127,5 +172,11 @@ class Landingpage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index; // Update the selected index
+    });
   }
 }

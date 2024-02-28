@@ -5,6 +5,7 @@ import 'package:flutter_application_1/configs/constants.dart';
 class customTextField extends StatelessWidget {
   final TextEditingController? controller;
   final String labelText;
+  IconData? iconData;
   String? hintText;
   IconData? icon;
   final bool obscureText;
@@ -19,6 +20,7 @@ class customTextField extends StatelessWidget {
     this.icon,
     this.obscureText = false,
     this.Iconsuffix,
+    this.iconData,
   });
 
   @override

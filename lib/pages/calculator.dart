@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controllers/calculatorcontoller.dart';
 import 'package:flutter_application_1/views/CustomTextField.dart';
 import 'package:get/get.dart';
-import 'package:flutter_application_1/calculator.dart';
 
 class Calculator extends StatelessWidget {
   final TextEditingController num1controller = TextEditingController();

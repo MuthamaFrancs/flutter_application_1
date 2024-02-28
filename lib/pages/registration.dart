@@ -5,24 +5,27 @@ import 'package:flutter_application_1/views/CustomText.dart';
 import 'package:flutter_application_1/views/CustomTextField.dart';
 import 'package:get/get.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
-      home: Registration(),
-      debugShowCheckedModeBanner: false,
-    ),
-  );
+class Registration extends StatefulWidget {
+  Registration({super.key});
+
+  @override
+  State<Registration> createState() => _RegistrationState();
 }
 
-class Registration extends StatelessWidget {
-  Registration({super.key});
+class _RegistrationState extends State<Registration> {
   final TextEditingController firstnamecontroller = TextEditingController();
+
   final TextEditingController lastnamecontroller = TextEditingController();
+
   final TextEditingController emailcontroller = TextEditingController();
+
   final TextEditingController phonenocontroller = TextEditingController();
+
   final TextEditingController passwordcontroller = TextEditingController();
+
   final TextEditingController confirmpasswordcontroller =
       TextEditingController();
+
   bool isChecked = false;
 
   @override
@@ -40,6 +43,16 @@ class Registration extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(
+                  "images/finallogo.jpg",
+                  width: 200,
+                  height: 200,
+                ),
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -106,6 +119,7 @@ class Registration extends StatelessWidget {
               labelText: "email",
               controller: emailcontroller,
               hintText: "example@gmail.com",
+              icon: Icons.email,
             ),
             const SizedBox(
               height: 7,
@@ -120,6 +134,7 @@ class Registration extends StatelessWidget {
               labelText: "Phone no",
               controller: phonenocontroller,
               hintText: "+245712000000",
+              icon: Icons.phone,
             ),
             const SizedBox(
               height: 7,
@@ -135,6 +150,7 @@ class Registration extends StatelessWidget {
               controller: passwordcontroller,
               obscureText: true,
               Iconsuffix: Icons.visibility_off,
+              icon: Icons.lock,
             ),
             const SizedBox(
               height: 7,
@@ -150,19 +166,34 @@ class Registration extends StatelessWidget {
               controller: confirmpasswordcontroller,
               obscureText: true,
               Iconsuffix: Icons.visibility_off,
+              icon: Icons.lock,
             ),
             const SizedBox(
               height: 7,
             ),
             Row(
               children: [
-                Checkbox(
-                    value: isChecked,
-                    onChanged: (value) {
-                      isChecked = true;
-                    }),
-                const Text(
-                    "I have read and I agree to the terms and conditions")
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isChecked = !isChecked; // Toggle the value of isChecked
+                    });
+                  },
+                  child: Row(
+                    children: [
+                      Checkbox(
+                        value: isChecked,
+                        onChanged: (value) {
+                          setState(() {
+                            isChecked = value ?? false;
+                          });
+                        },
+                      ),
+                      const Text(
+                          "I have read and I agree to the terms and conditions"),
+                    ],
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 7.0),
@@ -175,9 +206,11 @@ class Registration extends StatelessWidget {
                     fontWeight: FontWeight.bold, fontSize: 18.0),
               ),
             ),
+            const SizedBox(height: 7.0),
+            const Divider(
+              color: primaryColor,
+            ),
             const SizedBox(height: 14.0),
-            //ElevatedButton.icon(onPressed: (){}, icon: Icon(Icon.Google), label: const Text("Sign up using Google")),
-
             Center(
               child: SizedBox(
                 width: 300.0,

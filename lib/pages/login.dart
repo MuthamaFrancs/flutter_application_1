@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/configs/constants.dart';
-import 'package:flutter_application_1/registration.dart';
+import 'package:flutter_application_1/pages/registration.dart';
 import 'package:flutter_application_1/views/CustomButton.dart';
 import 'package:flutter_application_1/views/CustomText.dart';
 import 'package:flutter_application_1/views/CustomTextField.dart';
@@ -114,6 +114,7 @@ class Login extends StatelessWidget {
               // SIgnup
               Center(
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const customText(
                         label: "Already have an account?",

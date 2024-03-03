@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class customText extends StatelessWidget {
   final String label;
-  final Function()? onTap;
+  final VoidCallback? onTap;
   final TextStyle textStyle;
   final FontStyle? fontStyle;
+
   //constructor
   const customText({
     super.key,

@@ -18,8 +18,8 @@ class CustomAppbar extends StatelessWidget {
       padding: const EdgeInsets.only(top: 10, bottom: 10),
       child: Container(
         decoration: BoxDecoration(
-          color: primaryColor,
-          borderRadius: BorderRadius.circular(10.0),
+          border: Border.all(color: primaryColor),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         //height: 70.0,
         child: Row(
@@ -28,10 +28,11 @@ class CustomAppbar extends StatelessWidget {
             const Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(8.0),
                   child: CircleAvatar(
-                    child: Icon(Icons.person, color: primaryColor, size: 60.0),
-                    radius: 40.0,
+                    backgroundColor: whitecolor,
+                    child: Icon(Icons.person, color: primaryColor, size: 50.0),
+                    radius: 30.0,
                   ),
                 ),
               ],
@@ -45,7 +46,7 @@ class CustomAppbar extends StatelessWidget {
                   Text(
                     title,
                     style: const TextStyle(
-                      color: greycolor,
+                      color: Colors.black,
                       fontSize: 18.0,
                       decoration: TextDecoration.none,
                     ),
@@ -53,11 +54,13 @@ class CustomAppbar extends StatelessWidget {
                   Text(
                     subtitle,
                     style: const TextStyle(
-                      color: greycolor,
+                      color: Colors.black,
                       fontSize: 22.0,
                       decoration: TextDecoration.none,
                       fontWeight: FontWeight.bold,
+                      overflow: TextOverflow.ellipsis,
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),
@@ -69,15 +72,3 @@ class CustomAppbar extends StatelessWidget {
     );
   }
 }
-
-// void main() {
-//   runApp(
-//     MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: CustomAppbar(
-//         title: 'Hello, Francis!',
-//         subtitle: 'Welcome to back to One-Tap Auth',
-//       ),
-//     ),
-//   );
-// }

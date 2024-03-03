@@ -37,7 +37,7 @@ class _LandingpageState extends State<Landingpage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.auto_graph_rounded),
-            label: 'Statistics',
+            label: 'Attendance',
             //activeIcon: ,
           ),
           BottomNavigationBarItem(

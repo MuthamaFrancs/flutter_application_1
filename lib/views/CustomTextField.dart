@@ -7,9 +7,10 @@ class customTextField extends StatelessWidget {
   final String labelText;
   IconData? iconData;
   String? hintText;
-  IconData? icon;
-  final bool obscureText;
+  IconData? prefixIcon;
+  bool obscureText;
   IconData? Iconsuffix;
+  final VoidCallback? togglePasswordVisibility;
 
   //this is a constructor
   customTextField({
@@ -17,10 +18,11 @@ class customTextField extends StatelessWidget {
     required this.labelText,
     this.controller,
     this.hintText,
-    this.icon,
+    this.prefixIcon,
     this.obscureText = false,
     this.Iconsuffix,
     this.iconData,
+    this.togglePasswordVisibility,
   });
 
   @override
@@ -28,16 +30,17 @@ class customTextField extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         border: const OutlineInputBorder(),
-
         focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: primaryColor)),
-        prefixIcon: Icon(icon),
         hintText: hintText,
-        suffixIcon: Icon(Iconsuffix),
-
-        // suffixIcon: const Icon(Icons.visibility_off),
+        prefixIcon: Icon(prefixIcon),
+        suffixIcon: InkWell(
+          onTap: togglePasswordVisibility,
+          child: Icon(Iconsuffix),
+        ),
       ),
-      obscureText: obscureText,
     );
   }
+
+  bool isPasswordVisible = false;
 }

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/configs/constants.dart';
 
 class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: const Center(child: Text('Profile')),
       ),
       body: const Center(
         child: Card(
@@ -14,11 +15,12 @@ class Profile extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
-                //height: 150,
-                //width: 150,
+                height: 150,
+                width: 150,
                 child: Icon(
                   Icons.person,
                   size: 100,
+                  color: primaryColor,
                 ),
               ),
               SizedBox(height: 16),
@@ -31,7 +33,7 @@ class Profile extends StatelessWidget {
               ),
               SizedBox(height: 8),
               Text(
-                'Attendance App',
+                'Chapel Attendance App',
                 style: TextStyle(
                   fontSize: 16,
                 ),

@@ -70,6 +70,7 @@ class _RegistrationState extends State<Registration> {
                           height: 7,
                         ),
                         customTextField(
+                          autofocus: true,
                           labelText: "First Name",
                           controller: firstnamecontroller,
                           hintText: "first name",

@@ -11,6 +11,7 @@ class customTextField extends StatelessWidget {
   bool obscureText;
   IconData? Iconsuffix;
   final VoidCallback? togglePasswordVisibility;
+  bool? autofocus;
 
   //this is a constructor
   customTextField({
@@ -23,11 +24,13 @@ class customTextField extends StatelessWidget {
     this.Iconsuffix,
     this.iconData,
     this.togglePasswordVisibility,
+    this.autofocus,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      autofocus: autofocus ?? false,
       decoration: InputDecoration(
         border: const OutlineInputBorder(),
         focusedBorder: const OutlineInputBorder(

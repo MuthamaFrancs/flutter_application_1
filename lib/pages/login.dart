@@ -59,6 +59,7 @@ class _LoginState extends State<Login> {
                 ),
                 //usename controller
                 customTextField(
+                  autofocus: true,
                   labelText: "Username",
                   controller: usernamecontroller,
                   hintText: "example@gmail.com, phone no",

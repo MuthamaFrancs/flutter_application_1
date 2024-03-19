@@ -10,34 +10,28 @@ class MyListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
+        future: getAlbum(),
+        builder: (context, data) {
+          if (data.connectionState == ConnectionState.waiting) {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (snapshot.error != null) {
-            return const Center(
-              child: Text("An error occurred!"),
-            );
-          } else if (snapshot.hasError) {
-            return Center(
-              child: Text('Error: ${snapshot.error}'),
-            );
-          } else {
+          } else if (data.hasData) {
             return ListView.builder(
               itemBuilder: (context, index) {
                 return Column(
                   children: [
-                    Text(snapshot.data![index].title),
-                    Image.network(""), // Add image URL
+                    Text(data.data![index].title),
+                    Image.network(data.data![index].image), // Add image URL
                   ],
                 );
               },
               itemCount: 10,
             );
+          } else {
+            throw "no dataa found!";
           }
         },
-        future: getAlbum(),
       ),
     );
   }

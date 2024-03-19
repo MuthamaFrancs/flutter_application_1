@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/configs/constants.dart';
 import 'package:flutter_application_1/controllers/LoginController.dart';
 import 'package:flutter_application_1/views/CustomAppbar.dart';
+import 'package:flutter_application_1/views/CustomProgressbar.dart';
+import 'package:flutter_application_1/views/CustomVerses.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -42,73 +44,76 @@ class HomePage extends StatelessWidget {
                     width: 250,
                   ),
                 ),
-                const Card(
-                  child: Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(20.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.sunny,
-                                color: Colors.yellow,
-                                size: 60.0,
-                              ),
-                              Text(
-                                "Today's Verse",
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            //to link with elearning daily verse
-                            Text(
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor sapien.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus, est id vestibulum lobortis, odio ipsum lacinia nunc, vel accumsan nisi lectus nec ligula. Aliquam in dui lorem. Vivamus auctor sapien"),
-                          ],
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          "Chapel Day Coming in 6 days!",
-                          style: TextStyle(
-                            fontSize: 22.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                const CustomProgressBar(),
+                const CustomVerses(),
+                // const Card(
+                //   child: Padding(
+                //     padding: EdgeInsets.all(20.0),
+                //     child: Column(
+                //       children: [
+                //         Padding(
+                //           padding: EdgeInsets.all(20.0),
+                //           child: Row(
+                //             mainAxisAlignment: MainAxisAlignment.center,
+                //             children: [
+                //               Icon(
+                //                 Icons.sunny,
+                //                 color: Colors.yellow,
+                //                 size: 60.0,
+                //               ),
+                //               Text(
+                //                 "Today's Verse",
+                //                 style: TextStyle(
+                //                   fontSize: 20.0,
+                //                   fontWeight: FontWeight.normal,
+                //                 ),
+                //               ),
+                //             ],
+                //           ),
+                //         ),
+                //         Column(
+                //           mainAxisAlignment: MainAxisAlignment.center,
+                //           children: [
+                //             //to link with elearning daily verse
+                //             Text(
+                //                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor sapien.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus, est id vestibulum lobortis, odio ipsum lacinia nunc, vel accumsan nisi lectus nec ligula. Aliquam in dui lorem. Vivamus auctor sapien"),
+                //           ],
+                //         ),
+                //         SizedBox(height: 8),
+                //         Text(
+                //           "Chapel Day Coming in 6 days!",
+                //           style: TextStyle(
+                //             fontSize: 22.0,
+                //             fontWeight: FontWeight.bold,
+                //           ),
+                //         ),
+                //       ],
+                //     ),
+                //   ),
+                // ),
+
                 const SizedBox(
                   height: 10.0,
                 ),
                 GestureDetector(
                   //implement on tap
                   onTap: () {},
-                  child: Card(
+                  child: const Card(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Container(
-                            margin: const EdgeInsets.all(10.0),
-                            child: Image.asset(
-                              "assets/images/finallogo.jpg",
-                              height: 400,
-                              width: 400,
-                            ),
-                          ),
-                        ),
-                        const Row(
+                        // Padding(
+                        //   padding: const EdgeInsets.all(10.0),
+                        //   child: Container(
+                        //     margin: const EdgeInsets.all(10.0),
+                        //     child: Image.asset(
+                        //       "assets/images/finallogo.jpg",
+                        //       height: 400,
+                        //       width: 400,
+                        //     ),
+                        //   ),
+                        // ),
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
@@ -124,7 +129,7 @@ class HomePage extends StatelessWidget {
                             ),
                             Center(
                               child: Text(
-                                "Scan to sign up for attendance!",
+                                "Tap to sign up Today!",
                                 style: TextStyle(
                                   fontSize: 22.0,
                                   fontWeight: FontWeight.w600,

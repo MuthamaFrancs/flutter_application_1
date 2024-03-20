@@ -14,25 +14,25 @@ class Profile extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircleAvatar(
+              const CircleAvatar(
                 radius: 100,
                 backgroundColor: whitecolor,
                 child: Icon(Icons.person, color: primaryColor, size: 150.0),
               ),
-              SizedBox(height: 20.0),
-              Text(
+              const SizedBox(height: 20.0),
+              const Text(
                 "Francis Musau",
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               InfoCard(
                 title: "Phone :",
                 subtitle: "+254769892579",
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               InfoCard(
                 title: "Email:",
                 subtitle: "musaufrancis@gmail.com",
@@ -60,7 +60,7 @@ class InfoCard extends StatelessWidget {
         children: [
           Text(
             title!,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
             ),
@@ -68,18 +68,18 @@ class InfoCard extends StatelessWidget {
           Expanded(
             child: Text(
               subtitle!,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20.0,
               ),
               overflow: TextOverflow.ellipsis,
             ),
           ),
-          SizedBox(width: 20.0),
+          const SizedBox(width: 20.0),
           GestureDetector(
             onTap: () {
               // Handle edit action
             },
-            child: Icon(
+            child: const Icon(
               Icons.edit,
               color: primaryColor,
             ),

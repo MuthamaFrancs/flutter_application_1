@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import '../views/CustomPasswordTxtField.dart';
 
 class Login extends StatefulWidget {
-  Login({super.key});
+  const Login({super.key});
 
   @override
   State<Login> createState() => _LoginState();

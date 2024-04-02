@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class StudentModel {
@@ -5,12 +6,14 @@ class StudentModel {
   final String admissionnum;
   final String sname;
   final String? email;
+  final Image? image;
 
   //constructor
   StudentModel({
     required this.admissionnum,
     required this.sname,
     this.email,
+    this.image,
   });
   //factory constructor
   factory StudentModel.fromJson(Map<String, dynamic> json) {

@@ -33,9 +33,11 @@ class Profile extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20.0),
-                  InfoCard(
-                    title: "Phone :",
-                    subtitle: "+254769892579",
+                  Card(
+                    child: InfoCard(
+                      title: "Phone :",
+                      subtitle: "+254769892579",
+                    ),
                   ),
                   const SizedBox(height: 20.0),
                   Card(

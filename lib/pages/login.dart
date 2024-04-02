@@ -6,6 +6,7 @@ import 'package:flutter_application_1/views/CustomText.dart';
 import 'package:flutter_application_1/views/CustomTextField.dart';
 import 'package:get/get.dart';
 
+import '../services/authentication.dart';
 import '../views/CustomPasswordTxtField.dart';
 
 class Login extends StatefulWidget {
@@ -36,7 +37,7 @@ class _LoginState extends State<Login> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  decoration: BoxDecoration(shape: BoxShape.circle),
+                  decoration: const BoxDecoration(shape: BoxShape.circle),
                   child: Center(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -111,7 +112,25 @@ class _LoginState extends State<Login> {
                   child: customButton(
                     btnLabel: "Login",
                     btnColor: primaryColor,
-                    action: navigatetolandingpage,
+                    action: () async {
+                      // Implement login functionality here
+                      if (passwordcontroller.text.isNotEmpty &&
+                          usernamecontroller.text.isNotEmpty) {
+                        var response = await login(
+                            usernamecontroller.text, passwordcontroller.text);
+
+                        if (response != null) {
+                          Get.snackbar("Success", "Login Successful");
+                          Future.delayed(const Duration(seconds: 2), () {
+                            Get.toNamed("/landingpage");
+                          });
+                        } else {
+                          Get.snackbar("Error", "Login Failed");
+                        }
+                      } else {
+                        Get.snackbar("Error", "Please fill all fields");
+                      }
+                    },
                     textStyle: const TextStyle(fontSize: 18, color: whitecolor),
                   ),
                 ),
@@ -162,5 +181,11 @@ class _LoginState extends State<Login> {
 
   void navigatetoregistation() {
     Get.toNamed("/registration");
+  }
+
+  void dispose() {
+    usernamecontroller.dispose();
+    passwordcontroller.dispose();
+    super.dispose();
   }
 }

@@ -30,6 +30,7 @@ class customTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       autofocus: autofocus ?? false,
       decoration: InputDecoration(
         border: const OutlineInputBorder(),

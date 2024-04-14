@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/configs/constants.dart';
 import 'package:flutter_application_1/pages/registration.dart';
@@ -5,6 +7,7 @@ import 'package:flutter_application_1/views/CustomButton.dart';
 import 'package:flutter_application_1/views/CustomText.dart';
 import 'package:flutter_application_1/views/CustomTextField.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 
 import '../services/authentication.dart';
 import '../views/CustomPasswordTxtField.dart';
@@ -112,24 +115,8 @@ class _LoginState extends State<Login> {
                   child: customButton(
                     btnLabel: "Login",
                     btnColor: primaryColor,
-                    action: () async {
-                      // Implement login functionality here
-                      if (passwordcontroller.text.isNotEmpty &&
-                          usernamecontroller.text.isNotEmpty) {
-                        var response = await login(
-                            usernamecontroller.text, passwordcontroller.text);
-
-                        if (response != null) {
-                          Get.snackbar("Success", "Login Successful");
-                          Future.delayed(const Duration(seconds: 2), () {
-                            Get.toNamed("/landingpage");
-                          });
-                        } else {
-                          Get.snackbar("Error", "Login Failed");
-                        }
-                      } else {
-                        Get.snackbar("Error", "Please fill all fields");
-                      }
+                    action: () {
+                      login(usernamecontroller.text, passwordcontroller.text);
                     },
                     textStyle: const TextStyle(fontSize: 18, color: whitecolor),
                   ),

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/configs/constants.dart';
@@ -28,22 +29,13 @@ class HomePage extends StatelessWidget {
                 CustomAppbar(
                     title: "Welcome Francis!",
                     subtitle: "Sing Up your Chapel Attendance!"),
-                const Text(
-                  "Today is Friday 1/03/2024",
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
-                CircleAvatar(
-                  radius: 120,
-                  backgroundColor: whitecolor,
-                  child: Image.asset(
-                    "assets/images/people.jpg",
-                    height: 250,
-                    width: 250,
-                  ),
-                ),
+                //const Text(
+                //  "Today is Friday 1/03/2024",
+                //  style: TextStyle(
+                //    fontSize: 20.0,
+                //    fontWeight: FontWeight.normal,
+                //  ),
+                //),
                 const CustomProgressBar(),
                 const CustomVerses(),
                 const SizedBox(
@@ -52,14 +44,15 @@ class HomePage extends StatelessWidget {
                 GestureDetector(
                   //implement on tap
                   onTap: () {},
-                  child: const Card(
+                  child: Card(
+                    color: greycolor,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Padding(
+                            const Padding(
                               padding: EdgeInsets.all(10.0),
                               child: Icon(
                                 Icons.fingerprint,
@@ -67,16 +60,41 @@ class HomePage extends StatelessWidget {
                                 color: primaryColor,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20.0,
                             ),
-                            Center(
-                              child: Text(
-                                "Tap to sign up Today!",
-                                style: TextStyle(
-                                  fontSize: 22.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                            Card(
+                              color: greycolor,
+                              margin: const EdgeInsets.all(12),
+                              child: Column(
+                                children: [
+                                  const Align(
+                                    alignment: Alignment.topRight,
+                                    child: Text(
+                                      "Mark Attendance",
+                                      style: TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.w100,
+                                      ),
+                                    ),
+                                  ),
+                                  Image.asset(
+                                    "assets/images/techny-time-management.png",
+                                    height: 200,
+                                    width: 200,
+                                  ),
+                                  const Align(
+                                    alignment: Alignment.bottomLeft,
+                                    child: Text(
+                                      "Mark Attendance",
+                                      style: TextStyle(
+                                        color: primaryColor,
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.w100,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],

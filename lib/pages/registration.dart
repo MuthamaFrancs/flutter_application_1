@@ -5,6 +5,7 @@ import 'package:flutter_application_1/views/CustomPasswordTxtField.dart';
 import 'package:flutter_application_1/views/CustomText.dart';
 import 'package:flutter_application_1/views/CustomTextField.dart';
 import 'package:get/get.dart';
+import 'package:flutter_application_1/services/authentication.dart';
 
 class Registration extends StatefulWidget {
   Registration({super.key});
@@ -206,7 +207,16 @@ class _RegistrationState extends State<Registration> {
                 child: customButton(
                   btnLabel: "SING UP",
                   btnColor: primaryColor,
-                  action: navigatetologin,
+                  action: () {
+                    Signup(
+                        firstnamecontroller.text,
+                        lastnamecontroller.text,
+                        emailcontroller.text,
+                        phonenocontroller.text,
+                        passwordcontroller.text,
+                        confirmpasswordcontroller.text);
+                  },
+                  // Remove the problematic line 'action: Signup(),'
                   textStyle: const TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 18.0),
                 ),

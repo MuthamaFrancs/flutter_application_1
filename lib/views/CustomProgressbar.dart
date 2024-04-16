@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/views/CustomText.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
-
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import '../configs/constants.dart';
 
 class CustomProgressBar extends StatefulWidget {
@@ -29,6 +27,8 @@ class _CustomProgressBarState extends State<CustomProgressBar> {
             height: 10,
           ),
           Card(
+            color: greycolor,
+            elevation: 5,
             child: Padding(
               padding: const EdgeInsets.all(8),
               child: Column(
@@ -36,20 +36,22 @@ class _CustomProgressBarState extends State<CustomProgressBar> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
-                    child: LinearPercentIndicator(
+                    child: CircularPercentIndicator(
                       animation: true,
                       animationDuration: 2000,
-                      width: MediaQuery.of(context).size.width - 50,
-                      lineHeight: 20.0,
+                      radius: 200,
+                      lineWidth: 16.0,
                       percent: 0.8,
-                      center: const Text(
-                        "80.0%",
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
+                      center: CircleAvatar(
+                        radius: 80,
+                        backgroundColor: whitecolor,
+                        child: Image.asset(
+                          "assets/images/people.jpg",
+                          height: 150,
+                          width: 150,
                         ),
                       ),
-                      linearStrokeCap: LinearStrokeCap.roundAll,
+                      circularStrokeCap: CircularStrokeCap.round,
                       backgroundColor: primaryColor.withOpacity(0.2),
                       progressColor: primaryColor,
                     ),

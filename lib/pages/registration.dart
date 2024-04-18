@@ -148,7 +148,7 @@ class _RegistrationState extends State<Registration> {
               ),
               PasswordTExtField(
                 labelText: "Enter Password",
-                passcontroller: confirmpasswordcontroller,
+                passcontroller: passwordcontroller,
                 hintText: "Enter password",
                 prefixIcon: Icons.lock,
                 obscureText: true,
@@ -251,39 +251,6 @@ class _RegistrationState extends State<Registration> {
                 ),
               ),
               const SizedBox(height: 14.0),
-              // Center(
-              // child: SizedBox(
-              // width: 300.0,
-              // height: 50.0,
-              // child: ElevatedButton(
-              // style: const ButtonStyle(
-              // backgroundColor:
-              // MaterialStatePropertyAll(Color(0xFFeab676)),
-              // fixedSize: MaterialStatePropertyAll(Size.fromHeight(
-              // 40.0,
-              // )),
-              // ),
-              // onPressed: () {},
-              // child: Center(
-              // child: Row(
-              // children: [
-              // Image.asset(
-              // "assets/images/Googlelogo.jpg", // Replace 'assets/google_logo.png' with the path to your Google logo image
-              // height: 24, // Adjust the height as needed
-              // width: 24, // Adjust the width as needed
-              // ),
-              // const SizedBox(
-              // width:
-              // 7), // Add space between the logo and the text
-              // const Text(
-              // 'Sign up with Google',
-              // style: TextStyle(fontSize: 18),
-              // ),
-              // ],
-              // ),
-              // )),
-              // ),
-              //),
             ],
           ),
         ),

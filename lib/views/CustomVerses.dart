@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class CustomVerses extends StatefulWidget {
@@ -14,7 +15,7 @@ class _CustomVersesState extends State<CustomVerses> {
   final List<String> verses = [
     "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life. John 3:16",
     "The Lord is my shepherd, I lack nothing. Psalm 23:1",
-    "I can do all this through him who gives me strength. Philippians 4:13",
+    "I can do all things through him who gives me strength. Philippians 4:13",
     "The Lord is my light and my salvation— whom shall I fear? The Lord is the stronghold of my life— of whom shall I be afraid? Psalm 27:1",
   ];
   late String todaysVerse;
@@ -22,6 +23,7 @@ class _CustomVersesState extends State<CustomVerses> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 10,
       child: Padding(
         padding: EdgeInsets.all(20.0),
         child: Column(
@@ -36,10 +38,13 @@ class _CustomVersesState extends State<CustomVerses> {
                     color: Colors.yellow,
                     size: 60.0,
                   ),
-                  Text(
-                    "Today's Verse",
-                    style:
-                        TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "Today's Verse",
+                      style: TextStyle(
+                          fontSize: 30.0, fontWeight: FontWeight.bold),
+                    ),
                   )
                 ],
               ),

@@ -52,8 +52,8 @@ class _CustomProgressBarState extends State<CustomProgressBar> {
                         ),
                       ),
                       circularStrokeCap: CircularStrokeCap.round,
-                      backgroundColor: primaryColor.withOpacity(0.2),
-                      progressColor: primaryColor,
+                      backgroundColor: whitecolor.withOpacity(0.4),
+                      progressColor: primaryColor.withOpacity(0.7),
                     ),
                   ),
                   const SizedBox(
@@ -63,8 +63,10 @@ class _CustomProgressBarState extends State<CustomProgressBar> {
                     child: Text(
                       "$numberofAttendees people attended chapel today",
                       style: const TextStyle(
+                        color: primaryColor,
+                        fontStyle: FontStyle.normal,
                         fontSize: 20.0,
-                        fontWeight: FontWeight.normal,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   )

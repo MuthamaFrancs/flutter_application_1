@@ -34,36 +34,42 @@ Future<void> login(String username, String password) async {
 Future<void> Signup(String firstname, String secondname, String email,
     String phone, String password, String confirmPassword) async {
   try {
-    var body = {
-      'fname': firstname.trim(),
-      'sname': secondname.trim(),
-      'email': email.trim(),
-      'phone': phone.trim(),
-      'password': password.trim(),
-      'confirm_password': confirmPassword.trim()
-    };
-    http.Response response = await http.post(Uri.parse('$baseUrl/create.php'),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-        body: jsonEncode(body));
-    if (response.statusCode == 200) {
-      var serverResponse = json.decode(response.body);
-      int SignupState = serverResponse['success'];
-
-      if (SignupState == 1) {
-        Get.toNamed("/login");
-        Get.snackbar("Successful Signup", "");
-      } else {
-        // Assuming the server response includes an 'error' key for error messages
-        String errorMessage =
-            serverResponse['error'] ?? "An unknown error occurred.";
-        Get.snackbar("Error", errorMessage);
-      }
+    // var body = {
+    // 'fname': firstname.trim(),
+    // 'sname': secondname.trim(),
+    // 'email': email.trim(),
+    // 'phone': phone.trim(),
+    // 'password': password.trim(),
+    // };
+    if (password != confirmPassword) {
+      Get.snackbar("Error", "Passwords do not match");
     } else {
-      // Handle non-200 status codes
-      Get.snackbar(
-          "Error", "Server responded with status code ${response.statusCode}");
+      http.Response response = await http.get(
+        Uri.parse(
+            '$baseUrl/create.php?fname=$firstname&sname=$secondname&email=$email&phone=$phone&password=$password'),
+        // headers: <String, String>{
+        //   'Content-Type': 'application/json; charset=UTF-8',
+        // }
+      );
+      print(response.body);
+      if (response.statusCode == 200) {
+        var serverResponse = json.decode(response.body);
+        int SignupState = serverResponse['success'];
+
+        if (SignupState == 1) {
+          Get.offAndToNamed("/login");
+          Get.snackbar("Successful Signup", "");
+        } else {
+          // Assuming the server response includes an 'error' key for error messages
+          String errorMessage =
+              serverResponse['error'] ?? "An unknown error occurred.";
+          Get.snackbar("Error", errorMessage);
+        }
+      } else {
+        // Handle non-200 status codes
+        Get.snackbar("Error",
+            "Server responded with status code ${response.statusCode}");
+      }
     }
   } on Exception catch (e) {
     // Log the exception for debugging purposes

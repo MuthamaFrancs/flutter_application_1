@@ -95,17 +95,14 @@ class _LoginState extends State<Login> {
                   height: 20,
                 ),
                 //forgot password hyperlink text
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     customText(
                       label: "Forgot Password?",
-                      textStyle: const TextStyle(
+                      textStyle: TextStyle(
                         color: bluecolor,
                       ),
-                      onTap: () {
-                        // Implement onTap functionality here
-                      },
                     ),
                   ],
                 ),
@@ -144,12 +141,21 @@ class _LoginState extends State<Login> {
                                   builder: (context) => Registration()));
                         },
                         child: customText(
-                            label: " Create account.",
-                            onTap: navigatetoregistation,
-                            textStyle: const TextStyle(
-                              color: bluecolor,
-                              decoration: TextDecoration.none,
-                            )),
+                          label: " Create account.",
+                          onTap: navigatetoregistation,
+                          textStyle: const TextStyle(
+                            color: bluecolor,
+                            decoration: TextDecoration.none,
+                          ),
+                        ),
+                        // customButton(
+                        // btnLabel: "Create account",
+                        // btnColor: primaryColor,
+                        // action: () {
+                        // navigatetoregistation();
+                        // },
+                        // textStyle: const TextStyle(fontSize: 18, color: whitecolor),
+                        // ),
                       ),
                     ],
                   ),

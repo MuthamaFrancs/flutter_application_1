@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/configs/constants.dart';
 import 'package:get/get.dart';
 
 class CustomVerses extends StatefulWidget {
@@ -24,8 +25,9 @@ class _CustomVersesState extends State<CustomVerses> {
   Widget build(BuildContext context) {
     return Card(
       elevation: 10,
+      color: greycolor,
       child: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
             const Padding(

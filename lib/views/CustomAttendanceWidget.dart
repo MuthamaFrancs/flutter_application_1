@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/configs/constants.dart';
+import 'package:flutter_application_1/views/CustomText.dart';
 
 class CustomAttendance extends StatefulWidget {
   const CustomAttendance({super.key});
@@ -10,6 +10,57 @@ class CustomAttendance extends StatefulWidget {
 }
 
 class _CustomAttendanceState extends State<CustomAttendance> {
+  
+  final DateTime now = DateTime.now();
+  void validator() {
+    setState(
+      () {
+        if (now == DateTime.monday) {
+          showDialog(
+              context: context, builder: (BuildContext context) => AlertDialog(
+                //implement user firstname
+                title: const Text("Hi User"),
+                content: Column(   
+                  mainAxisAlignment: MainAxisAlignment.center,               
+                  children: [
+                    Image.asset("assets/images/mood-love-inspiration-tender.png",height: 50, width: 50,),
+                    Text("You have successfully marked your attendance today! \n + ${Icons.fingerprint}"),
+                  ]
+                ),
+                
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text("Confirm"),
+                  ),
+                ],
+              ));
+        }else{
+         showDialog(
+              context: context, builder: (BuildContext context) => AlertDialog(
+                title: const Text("Hi User"),
+                content: Column(   
+                  mainAxisAlignment: MainAxisAlignment.center,               
+                  children: [
+                    Image.asset("assets/images/mood-frustration.png",height: 50, width: 50,),
+                    Text("Looks like today is not the day! \n + ${Icons.fingerprint}"),
+                  ]
+                ),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text("Close"),
+                  ),
+                ],
+              ));
+        }        
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -47,15 +98,21 @@ class _CustomAttendanceState extends State<CustomAttendance> {
                         height: 200,
                         width: 200,
                       ),
-                      const Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          "Mark Attendance",
-                          style: TextStyle(
-                            fontStyle: FontStyle.italic,
-                            color: Colors.blueAccent,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w600,
+                      GestureDetector(
+                        onTap: () => {
+                          //implement on tap
+                          validator()
+                        },
+                        child: const Align(
+                          alignment: Alignment.bottomRight,
+                          child: customText(
+                            label: "Mark attendance",
+                            textStyle: TextStyle(
+                              fontStyle: FontStyle.italic,
+                              color: Colors.blueAccent,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                       ),

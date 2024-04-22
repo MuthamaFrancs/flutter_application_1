@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_application_1/controllers/users_controller.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -15,16 +15,8 @@ Future<void> login(String username, String password) async {
     if (response.statusCode == 200) {
       var serverResponse = json.decode(response.body);
       int _LoginState = serverResponse['success'];
-      var userData = serverResponse['data'][0];
-      print('object $userData');
+
       if (_LoginState == 1) {
-        final UserController userController = Get.put(UserController());
-        userController.updateDetails(
-          userData['fname'],
-          userData['sname'],
-          userData['email'],
-          userData['phone'],
-        );
         Get.toNamed("/landingpage");
         Get.snackbar("Sucessful Login", "");
       } else {
@@ -43,28 +35,27 @@ Future<void> login(String username, String password) async {
 Future<void> Signup(String firstname, String secondname, String email,
     String phone, String password, String confirmPassword) async {
   try {
-    // var body = {
-    // 'fname': firstname.trim(),
-    // 'sname': secondname.trim(),
-    // 'email': email.trim(),
-    // 'phone': phone.trim(),
-    // 'password': password.trim(),
-    // };
+    if (firstname.isEmpty ||
+        secondname.isEmpty ||
+        email.isEmpty ||
+        phone.isEmpty ||
+        password.isEmpty ||
+        confirmPassword.isEmpty) {
+      Get.snackbar("Invalid Inputs", "Input all fields");
+    }
     if (password != confirmPassword) {
       Get.snackbar("Error", "Passwords do not match");
     } else {
       http.Response response = await http.get(
         Uri.parse(
-            '$baseUrl/create.php?fname=$firstname&sname=$secondname&email=$email&phone=$phone&password=$password'),
-        // headers: <String, String>{
-        //   'Content-Type': 'application/json; charset=UTF-8',
-        // }
+          '$baseUrl/create.php?fname=$firstname&sname=$secondname&email=$email&phone=$phone&password=$password',
+        ),
       );
       print(response.body);
       if (response.statusCode == 200) {
         var serverResponse = json.decode(response.body);
         int SignupState = serverResponse['success'];
-        var userData = serverResponse['data'][0];
+
         if (SignupState == 1) {
           Get.offAndToNamed("/login");
           Get.snackbar("Successful Signup", "");

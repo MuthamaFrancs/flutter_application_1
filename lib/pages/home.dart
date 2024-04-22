@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_application_1/controllers/LoginController.dart';
 import 'package:flutter_application_1/controllers/users_controller.dart';
 import 'package:flutter_application_1/views/CustomAppbar.dart';
 import 'package:flutter_application_1/views/CustomAttendanceWidget.dart';
@@ -30,10 +29,10 @@ class HomePage extends StatelessWidget {
                     title: "Welcome ${userController.fname}!",
                     subtitle: "Sing Up your Chapel Attendance!"),
                 // print(userController.fname.value),
+                const CustomAttendance(),
                 const CustomProgressBar(),
                 const CustomVerses(),
                 const SizedBox(height: 10.0),
-                const CustomAttendance(),
               ],
             ),
           ),

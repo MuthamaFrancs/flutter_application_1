@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/controllers/LoginController.dart';
-import 'package:flutter_application_1/services/authentication.dart';
+import 'package:flutter_application_1/controllers/users_controller.dart';
 import 'package:flutter_application_1/views/CustomAppbar.dart';
 import 'package:flutter_application_1/views/CustomAttendanceWidget.dart';
 import 'package:flutter_application_1/views/CustomProgressbar.dart';
 import 'package:flutter_application_1/views/CustomVerses.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/response/response.dart';
-import 'package:http/http.dart' as http;
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -16,7 +15,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LoginController loginController = Get.put(LoginController());
+    final UserController userController = Get.put(UserController());
+
     //automaticLeading = false;
     return Padding(
       padding: const EdgeInsets.only(top: 17.0),
@@ -27,8 +27,9 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: [
                 CustomAppbar(
-                    title: "Welcome ${getName()}!",
+                    title: "Welcome ${userController.fname}!",
                     subtitle: "Sing Up your Chapel Attendance!"),
+                // print(userController.fname.value),
                 const CustomProgressBar(),
                 const CustomVerses(),
                 const SizedBox(height: 10.0),
@@ -39,12 +40,5 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<String> getName(String firstname) async {
-    http.Response response =
-        await http.get(Uri.parse('$baseUrl/login.php?fname=$firstname'));
-    print(response);
-    return response.body;
   }
 }

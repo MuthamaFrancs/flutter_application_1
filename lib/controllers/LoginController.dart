@@ -1,17 +1,9 @@
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
-  var email = 'example@gmail.com';
-  var password = 'admin';
+  var email = 'example@gmail.com'.obs;
+  var password = ''.obs;
   var isPasswordVisible = false.obs;
-
-  void setEmail(String value) {
-    email = value;
-  }
-
-  void setPassword(String value) {
-    password = value;
-  }
 
   void togglePasswordVisibility() {
     isPasswordVisible.value = !isPasswordVisible.value;

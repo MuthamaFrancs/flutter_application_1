@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter_application_1/controllers/users_controller.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -14,8 +15,16 @@ Future<void> login(String username, String password) async {
     if (response.statusCode == 200) {
       var serverResponse = json.decode(response.body);
       int _LoginState = serverResponse['success'];
-
+      var userData = serverResponse['data'][0];
+      print('object $userData');
       if (_LoginState == 1) {
+        final UserController userController = Get.put(UserController());
+        userController.updateDetails(
+          userData['fname'],
+          userData['sname'],
+          userData['email'],
+          userData['phone'],
+        );
         Get.toNamed("/landingpage");
         Get.snackbar("Sucessful Login", "");
       } else {
@@ -55,7 +64,7 @@ Future<void> Signup(String firstname, String secondname, String email,
       if (response.statusCode == 200) {
         var serverResponse = json.decode(response.body);
         int SignupState = serverResponse['success'];
-
+        var userData = serverResponse['data'][0];
         if (SignupState == 1) {
           Get.offAndToNamed("/login");
           Get.snackbar("Successful Signup", "");

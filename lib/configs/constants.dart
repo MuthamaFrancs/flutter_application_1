@@ -5,3 +5,4 @@ const Color whitecolor = Color(0xFFFFFFFF);
 const Color blackcolor = Color(0xFF000000);
 const Color greycolor = Color.fromARGB(255, 160, 160, 160);
 const Color bluecolor = Color.fromRGBO(130, 194, 255, 1);
+const Color redColor = Color.fromRGBO(255, 145, 130, 1);

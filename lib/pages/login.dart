@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/configs/constants.dart';
 import 'package:flutter_application_1/pages/registration.dart';
@@ -7,7 +5,6 @@ import 'package:flutter_application_1/views/CustomButton.dart';
 import 'package:flutter_application_1/views/CustomText.dart';
 import 'package:flutter_application_1/views/CustomTextField.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 
 import '../services/authentication.dart';
 import '../views/CustomPasswordTxtField.dart';
@@ -89,7 +86,7 @@ class _LoginState extends State<Login> {
                       ? Icons.visibility
                       : Icons.visibility_off,
                 ),
-                //customText(label: "ForgotPassword", style: FontWeight: fontWeight.),
+
                 //ELevated Buton
                 const SizedBox(
                   height: 20,

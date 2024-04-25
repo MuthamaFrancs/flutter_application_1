@@ -1,66 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/configs/constants.dart';
+import 'package:flutter_application_1/controllers/users_controller.dart';
 import 'package:flutter_application_1/views/CustomText.dart';
+import 'package:get/get.dart';
 
 class CustomAttendance extends StatefulWidget {
   const CustomAttendance({super.key});
-
   @override
   State<CustomAttendance> createState() => _CustomAttendanceState();
 }
 
 class _CustomAttendanceState extends State<CustomAttendance> {
-  
-  final DateTime now = DateTime.now();
-  void validator() {
-    setState(
-      () {
-        if (now == DateTime.monday) {
-          showDialog(
-              context: context, builder: (BuildContext context) => AlertDialog(
-                //implement user firstname
-                title: const Text("Hi User"),
-                content: Column(   
-                  mainAxisAlignment: MainAxisAlignment.center,               
-                  children: [
-                    Image.asset("assets/images/mood-love-inspiration-tender.png",height: 50, width: 50,),
-                    Text("You have successfully marked your attendance today! \n + ${Icons.fingerprint}"),
-                  ]
-                ),
-                
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text("Confirm"),
-                  ),
-                ],
-              ));
-        }else{
-         showDialog(
-              context: context, builder: (BuildContext context) => AlertDialog(
-                title: const Text("Hi User"),
-                content: Column(   
-                  mainAxisAlignment: MainAxisAlignment.center,               
-                  children: [
-                    Image.asset("assets/images/mood-frustration.png",height: 50, width: 50,),
-                    Text("Looks like today is not the day! \n + ${Icons.fingerprint}"),
-                  ]
-                ),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text("Close"),
-                  ),
-                ],
-              ));
-        }        
-      },
-    );
-  }
+  final UserController userController = Get.put(UserController());
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -124,6 +76,54 @@ class _CustomAttendanceState extends State<CustomAttendance> {
           ),
         ),
       ),
+    );
+  }
+
+  void validator() {
+    //declaring an init day to a tuesday(2024, 4, 23) which is on a Tuesday
+    final localDay = DateTime.utc(2024, 4, 24);
+
+    var now = DateTime.now();
+
+    setState(
+      () {
+        if (now.weekday == localDay.weekday) {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+              //implement user firstname
+              title: Text("Hi ${userController.fname.value}!"),
+              content: const Text(
+                  "💪🏻 K E E P  U P  T H E  C O N S I S T E N C Y! 💪🏻"),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text("Confirm"),
+                ),
+              ],
+            ),
+          );
+        } else {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+              title: Text("Hi ${userController.fname.value}!"),
+              content: const Text(
+                  "Looks like today is not T U E🥲  or  T H U R 🥲!"),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text("Close"),
+                ),
+              ],
+            ),
+          );
+        }
+      },
     );
   }
 }

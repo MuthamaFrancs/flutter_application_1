@@ -209,16 +209,19 @@ class _RegistrationState extends State<Registration> {
                   btnColor: primaryColor,
                   action: () {
                     Signup(
-                        firstnamecontroller.text,
-                        lastnamecontroller.text,
-                        emailcontroller.text,
-                        phonenocontroller.text,
-                        passwordcontroller.text,
-                        confirmpasswordcontroller.text);
+                      firstnamecontroller.text,
+                      lastnamecontroller.text,
+                      emailcontroller.text,
+                      phonenocontroller.text,
+                      passwordcontroller.text,
+                      confirmpasswordcontroller.text,
+                    );
                   },
                   // Remove the problematic line 'action: Signup(),'
                   textStyle: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 18.0),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0,
+                  ),
                 ),
               ),
               const SizedBox(height: 7.0),

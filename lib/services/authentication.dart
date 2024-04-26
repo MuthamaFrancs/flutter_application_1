@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 const String baseUrl = "https://class-26.com/Musau_Students";
+final UserController userController = Get.put(UserController());
 
 Future<void> login(String username, String password) async {
   try {
@@ -15,7 +16,7 @@ Future<void> login(String username, String password) async {
     if (response.statusCode == 200) {
       var serverResponse = json.decode(response.body);
       int _LoginState = serverResponse['success'];
-      final UserController userController = Get.put(UserController());
+
       var userData = serverResponse['data'][0];
       userController.updateDetails(
         userData['fname'],
@@ -24,9 +25,9 @@ Future<void> login(String username, String password) async {
         userData['phone'],
       );
       print(userData);
-
       if (_LoginState == 1) {
         Get.toNamed("/landingpage");
+
         Get.snackbar("Sucessful Login", "");
       } else {
         Get.snackbar("Error", "Invalid username or password");

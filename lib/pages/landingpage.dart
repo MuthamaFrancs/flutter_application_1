@@ -5,19 +5,20 @@ import 'package:flutter_application_1/configs/constants.dart';
 import 'package:flutter_application_1/pages/home.dart';
 
 class Landingpage extends StatefulWidget {
-  Landingpage({dynamic});
+  const Landingpage({dynamic});
 
   @override
   State<Landingpage> createState() => _LandingpageState();
 }
 
 class _LandingpageState extends State<Landingpage> {
+// class _LandingpageState extends State<Landingpage> {
   int selectedIndex = 0;
+
   final pages = [
     const HomePage(),
     const AttendanceDashboard(),
     Profile(),
-    //Implement other screens here if needed
   ];
 
   @override
@@ -38,12 +39,12 @@ class _LandingpageState extends State<Landingpage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.auto_graph_rounded),
             label: 'Attendance',
-            //activeIcon: ,
+            //activeIcon: ,s
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
-          )
+          ),
         ],
       ),
 
@@ -54,7 +55,6 @@ class _LandingpageState extends State<Landingpage> {
   void _onItemTapped(int index) {
     setState(() {
       selectedIndex = index;
-      // Update the selected index
     });
   }
 }

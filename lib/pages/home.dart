@@ -26,10 +26,10 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: [
                 CustomAppbar(
-                    title:
-                        "Welcome ${userController.fname.value} ${userController.sname.value}!",
-                    subtitle: "Sign Up your Chapel Attendance!"),
-
+                  title:
+                      "Welcome ${userController.fname.value} ${userController.sname.value}!",
+                  subtitle: "Sign Up your Chapel Attendance!",
+                ),
                 // print(userController.fname.value),
                 const CustomAttendance(),
                 const CustomProgressBar(),

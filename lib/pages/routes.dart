@@ -9,11 +9,11 @@ import 'package:get/get.dart';
 class MyRoutes {
   // ...
   static var routes = [
-    GetPage(name: "/login", page: () => Login()),
-    GetPage(name: "/homepage", page: () => HomePage()),
+    GetPage(name: "/login", page: () => const Login()),
+    GetPage(name: "/homepage", page: () => const HomePage()),
     GetPage(name: "/registration", page: () => Registration()),
     GetPage(name: "/landingpage", page: () => Landingpage()),
-    GetPage(name: "/statistics", page: () => AttendanceDashboard()),
+    GetPage(name: "/statistics", page: () => const AttendanceDashboard()),
     GetPage(name: "/profile", page: () => Profile()),
   ];
 }

@@ -108,6 +108,7 @@ class _LoginState extends State<Login> {
                 Center(
                   child: customButton(
                     btnLabel: "Login",
+                    icon: Icons.login,
                     btnColor: primaryColor,
                     action: () {
                       login(usernamecontroller.text, passwordcontroller.text);

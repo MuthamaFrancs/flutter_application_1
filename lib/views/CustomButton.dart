@@ -4,15 +4,17 @@ class customButton extends StatelessWidget {
   final String btnLabel;
   final Color btnColor;
   //final void Function()? onPressed;
+  final IconData? icon;
   final VoidCallback? action;
   final TextStyle textStyle;
 
   //constructor
-  const customButton({
+  customButton({
     super.key,
     required this.btnLabel,
     required this.btnColor,
     //this.onPressed,
+    this.icon,
     this.action,
     required this.textStyle,
   });
@@ -27,7 +29,19 @@ class customButton extends StatelessWidget {
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(btnColor),
           ),
-          child: Text(btnLabel)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(btnLabel),
+              const SizedBox(
+                width: 8,
+              ),
+              Icon(
+                icon,
+                color: Colors.white,
+              ),
+            ],
+          )),
     );
   }
 }

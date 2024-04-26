@@ -81,7 +81,7 @@ class _CustomAttendanceState extends State<CustomAttendance> {
 
   void validator() {
     //declaring an init day to a tuesday(2024, 4, 23) which is on a Tuesday
-    final localDay = DateTime.utc(2024, 4, 24);
+    final localDay = DateTime.utc(2024, 4, 23);
 
     var now = DateTime.now();
 

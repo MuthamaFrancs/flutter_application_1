@@ -5,6 +5,7 @@ class UserController extends GetxController {
   var sname = "".obs;
   var email = "".obs;
   var phone = "".obs;
+  var streaks = 0.obs;
 
   void updateDetails(
     String firstname,

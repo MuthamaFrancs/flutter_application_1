@@ -6,6 +6,9 @@ import 'package:get/get.dart';
 
 class Profile extends StatelessWidget {
   final UserController userController = Get.put(UserController());
+
+  Profile({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,41 +42,45 @@ class Profile extends StatelessWidget {
               const Text(
                   "We help you keep track of your Chapel attendance.\n Soo far you have attended 10 🔥chapel services "),
               const SizedBox(height: 20.0),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  InfoCard(
-                    title: const Text("first name"),
-                    subtitle: userController.fname.value,
-                  ),
-                  InfoCard(
-                    title: const Text("last name"),
-                    subtitle: userController.sname.value,
-                  ),
-                ],
-              ),
-              InfoCard(
-                title: const Text("Email"),
-                subtitle: userController.email.value,
-              ),
-              InfoCard(
-                title: const Text("Phone number"),
-                subtitle: userController.phone.value,
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+              //   children: [
+              //     InfoCard(
+              //       title: const Text("first name"),
+              //       subtitle: userController.fname.value,
+              //     ),
+              //     InfoCard(
+              //       title: const Text("last name"),
+              //       subtitle: userController.sname.value,
+              //     ),
+              //   ],
+              // ),
+              // InfoCard(
+              //   title: const Text("Email"),
+              //   subtitle: userController.email.value,
+              // ),
+              // InfoCard(
+              //   title: const Text("Phone number"),
+              //   subtitle: userController.phone.value,
+              // ),
+
               Row(
                 children: [
                   customButton(
-                    btnLabel: "L O G  O U T ${const Icon(Icons.logout)}",
+                    btnLabel: "LOG OUT ",
+                    icon: Icons.logout,
                     btnColor: primaryColor,
-                    textStyle: const TextStyle(fontSize: 18, color: whitecolor),
-                    action: () => Get.offAllNamed("/login"),
+                    action: () => Get.offAndToNamed("/login"),
+                    textStyle:
+                        const TextStyle(fontSize: 18, color: Colors.white),
                   ),
                   customButton(
-                    btnLabel:
-                        "DELETE ACCOUNT${const Icon(Icons.delete_forever)}",
-                    btnColor: redColor,
-                    textStyle: const TextStyle(fontSize: 18, color: whitecolor),
-                    action: () => {},
+                    btnLabel: "DE LETE  ACCOUNT",
+                    icon: Icons.delete_forever,
+                    btnColor: primaryColor,
+                    action: () => Get.offAndToNamed("/login"),
+                    textStyle:
+                        const TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ],
               ),
@@ -86,9 +93,9 @@ class Profile extends StatelessWidget {
 }
 
 class InfoCard extends StatelessWidget {
-  final Text? title;
-  final String? subtitle;
-  final Align? editIcon;
+  final Text title;
+  final String subtitle;
+  final editIcon;
 
   InfoCard({
     required this.title,
@@ -103,10 +110,7 @@ class InfoCard extends StatelessWidget {
       child: InfoCard(
         title: title,
         subtitle: subtitle,
-        editIcon: const Align(
-          alignment: Alignment.topLeft,
-          child: Icon(Icons.edit),
-        ),
+        editIcon: const Icon(Icons.edit),
       ),
     );
   }

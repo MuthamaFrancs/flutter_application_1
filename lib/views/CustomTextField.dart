@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/configs/constants.dart';
 
 // ignore: must_be_immutable
-class customTextField extends StatelessWidget {
+class custom_text_field extends StatelessWidget {
   final TextEditingController? controller;
   final String labelText;
   IconData? iconData;
@@ -14,7 +14,7 @@ class customTextField extends StatelessWidget {
   bool? autofocus;
 
   //this is a constructor
-  customTextField({
+  custom_text_field({
     super.key,
     required this.labelText,
     this.controller,

@@ -94,7 +94,8 @@ class _CustomAttendanceState extends State<CustomAttendance> {
               //implement user firstname
               title: Text("Hi ${userController.fname.value}!"),
               content: const Text(
-                  "💪🏻 K E E P  U P  T H E  C O N S I S T E N C Y! 💪🏻"),
+                "💪🏻 K E E P  U P  T H E  C O N S I S T E N C Y! 💪🏻",
+              ),
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
@@ -124,6 +125,24 @@ class _CustomAttendanceState extends State<CustomAttendance> {
           );
         }
       },
+    );
+  }
+
+  void errorpopup() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Text("${userController.fname.value}!"),
+        content: const Text("Please fill in all fields !"),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text("Close"),
+          ),
+        ],
+      ),
     );
   }
 }

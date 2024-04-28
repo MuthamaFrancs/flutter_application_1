@@ -70,7 +70,7 @@ class _RegistrationState extends State<Registration> {
                         const SizedBox(
                           height: 7,
                         ),
-                        customTextField(
+                        custom_text_field(
                           autofocus: true,
                           labelText: "First Name",
                           controller: firstnamecontroller,
@@ -97,7 +97,7 @@ class _RegistrationState extends State<Registration> {
                         const SizedBox(
                           height: 7,
                         ),
-                        customTextField(
+                        custom_text_field(
                           labelText: "LastName",
                           controller: lastnamecontroller,
                           hintText: "last name",
@@ -116,7 +116,7 @@ class _RegistrationState extends State<Registration> {
               const SizedBox(
                 height: 7,
               ),
-              customTextField(
+              custom_text_field(
                 labelText: "email",
                 controller: emailcontroller,
                 hintText: "example@gmail.com",
@@ -131,7 +131,7 @@ class _RegistrationState extends State<Registration> {
               const SizedBox(
                 height: 7,
               ),
-              customTextField(
+              custom_text_field(
                 labelText: "Phone no",
                 controller: phonenocontroller,
                 hintText: "+245712000000",

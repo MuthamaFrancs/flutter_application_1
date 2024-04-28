@@ -48,11 +48,13 @@ class _LandingpageState extends State<Landingpage> {
         ],
       ),
 
+      // body: pages[selectedIndex],
       body: pages[selectedIndex],
     );
   }
 
   void _onItemTapped(int index) {
+    print(index);
     setState(() {
       selectedIndex = index;
     });

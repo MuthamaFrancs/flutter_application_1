@@ -3,6 +3,7 @@ import 'package:flutter_application_1/controllers/calculatorcontoller.dart';
 import 'package:flutter_application_1/views/CustomTextField.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class Calculator extends StatelessWidget {
   final TextEditingController num1controller = TextEditingController();
   final TextEditingController num2controller = TextEditingController();
@@ -19,11 +20,11 @@ class Calculator extends StatelessWidget {
             const SizedBox(
               height: 7.0,
             ),
-            customTextField(labelText: "1", controller: num1controller),
+            custom_text_field(labelText: "1", controller: num1controller),
             const SizedBox(
               height: 7.0,
             ),
-            customTextField(labelText: "2", controller: num2controller),
+            custom_text_field(labelText: "2", controller: num2controller),
             const SizedBox(
               height: 7.0,
             ),

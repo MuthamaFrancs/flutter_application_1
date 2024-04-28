@@ -12,7 +12,7 @@ class MyRoutes {
     GetPage(name: "/login", page: () => const Login()),
     GetPage(name: "/homepage", page: () => const HomePage()),
     GetPage(name: "/registration", page: () => Registration()),
-    GetPage(name: "/landingpage", page: () => Landingpage()),
+    GetPage(name: "/landingpage", page: () => const Landingpage()),
     GetPage(name: "/statistics", page: () => const AttendanceDashboard()),
     GetPage(name: "/profile", page: () => Profile()),
   ];

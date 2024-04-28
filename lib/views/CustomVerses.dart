@@ -13,19 +13,26 @@ class CustomVerses extends StatefulWidget {
 }
 
 class _CustomVersesState extends State<CustomVerses> {
+  // final List<String> verses = [
+  //   "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life. John 3:16",
+  //   "The Lord is my shepherd, I lack nothing. Psalm 23:1",
+  //   "I can do all things through him who gives me strength. Philippians 4:13",
+  //   "The Lord is my light and my salvation— whom shall I fear? The Lord is the stronghold of my life— of whom shall I be afraid? Psalm 27:1",
+  // ];
   final List<String> verses = [
-    "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life. John 3:16",
-    "The Lord is my shepherd, I lack nothing. Psalm 23:1",
-    "I can do all things through him who gives me strength. Philippians 4:13",
-    "The Lord is my light and my salvation— whom shall I fear? The Lord is the stronghold of my life— of whom shall I be afraid? Psalm 27:1",
+    "assets/images/IMG_20240208_181349.jpg",
+    "assets/images/IMG_20240217_231225.jpg",
+    "assets/images/IMG_20240223_234856.jpg",
+    "assets/images/IMG_20240415_084219.jpg",
   ];
-  late String todaysVerse;
+  //late String todaysVerse;
+  dynamic todaysVerse;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 10,
-      color: greycolor,
+      color: whitecolor,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -33,7 +40,7 @@ class _CustomVersesState extends State<CustomVerses> {
             const Padding(
               padding: EdgeInsets.all(20.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Icon(
                     Icons.sunny,
@@ -45,7 +52,9 @@ class _CustomVersesState extends State<CustomVerses> {
                     child: Text(
                       "Today's Verse",
                       style: TextStyle(
-                          fontSize: 30.0, fontWeight: FontWeight.bold),
+                        fontSize: 30.0,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   )
                 ],
@@ -54,9 +63,16 @@ class _CustomVersesState extends State<CustomVerses> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(todaysVerse,
-                    style: const TextStyle(
-                        fontSize: 20.0, fontWeight: FontWeight.normal)),
+                // Text(
+                //   todaysVerse,
+                //   style: const TextStyle(
+                //       fontSize: 20.0, fontWeight: FontWeight.normal),
+                // ),
+
+                Image.asset(
+                  todaysVerse,
+                  fit: BoxFit.cover,
+                ),
                 const SizedBox(
                   height: 20.0,
                 ),

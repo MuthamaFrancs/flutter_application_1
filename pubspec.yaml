@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
   get: ^4.6.6 
   http: ^1.2.1
-  percent_indicator: ^3.4.0
+  percent_indicator: ^4.2.3
   curved_navigation_bar: ^1.0.3
 
 dev_dependencies:
@@ -33,4 +33,10 @@ flutter:
     - assets/images/clip-336.png
     - assets/images/mood-frustration.png
     - assets/images/mood-love-inspiration-tender.png
+    - assets/images/IMG_20240208_181349.jpg
+    - assets/images/IMG_20240217_231225.jpg
+    - assets/images/IMG_20240223_234856.jpg
+    - assets/images/IMG_20240415_084219.jpg
+
+    
 

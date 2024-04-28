@@ -59,7 +59,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 //usename controller
-                customTextField(
+                custom_text_field(
                   autofocus: true,
                   labelText: "Username",
                   controller: usernamecontroller,
@@ -112,6 +112,7 @@ class _LoginState extends State<Login> {
                     btnColor: primaryColor,
                     action: () {
                       login(usernamecontroller.text, passwordcontroller.text);
+                      //Get.toNamed("/landingpage");
                     },
                     textStyle: const TextStyle(fontSize: 18, color: whitecolor),
                   ),

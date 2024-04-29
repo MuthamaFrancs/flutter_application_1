@@ -223,7 +223,7 @@ class Profile extends StatelessWidget {
                     btnLabel: "DELETE ACCOUNT",
                     icon: Icons.delete_forever,
                     btnColor: primaryColor,
-                    action: () => Get.offAndToNamed("/registration"),
+                    action: () => Delete(userController.email.value),
                     textStyle: const TextStyle(
                       fontSize: 18,
                       color: redColor,

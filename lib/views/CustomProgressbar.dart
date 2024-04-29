@@ -36,7 +36,7 @@ class _CustomProgressBarState extends State<CustomProgressBar> {
                   child: CircularPercentIndicator(
                     animation: true,
                     animationDuration: 2000,
-                    radius: 200,
+                    radius: 100,
                     lineWidth: 16.0,
                     percent: 0.8,
                     center: CircleAvatar(

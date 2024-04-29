@@ -145,3 +145,27 @@ Future<void> UpdateUserDetails(
     Get.snackbar("Error", "Unable to update");
   }
 }
+
+//let us delete the user
+Future<void> Delete(
+  String email,
+) async {
+  final String encodedEmail = Uri.encodeComponent(email);
+  final String url = '$baseUrl/delete.php?email=$encodedEmail';
+
+  http.Response response = await http.get(
+    Uri.parse(url),
+  );
+  if (response.statusCode == 200) {
+    final Map<String, dynamic> responseData = jsonDecode(response.body);
+    if (responseData['success'] == 1) {
+      Get.snackbar("Success", "User deleted successfully!");
+      Get.offAndToNamed("/registration");
+    } else {
+      Get.snackbar("Unsuccessful",
+          "User deletion failed. Contact Developer for more info.");
+    }
+  } else {
+    Get.snackbar("Unsuccessfull", "Contact Developer for more info");
+  }
+}

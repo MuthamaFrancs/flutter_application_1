@@ -20,9 +20,10 @@ Future<void> login(String username, String password) async {
     if (response.statusCode == 200) {
       var serverResponse = json.decode(response.body);
       int _LoginState = serverResponse['success'];
-      // if (serverResponse['data'][0]) {
-      //   Get.snackbar("User not found", "Try Singing up instead");
-      // }
+      // print(_LoginState);
+      if (serverResponse['message'] == "No such user") {
+        Get.snackbar("User not found", "Try signing up instead");
+      }
       var userData = serverResponse['data'][0];
       userController.updateDetails(
         userData['fname'],
